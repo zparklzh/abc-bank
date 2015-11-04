@@ -75,4 +75,12 @@ public class Customer {
     private String toDollars(double d){
         return String.format("$%,.2f", abs(d));
     }
+    
+    
+    // transfer btw accounts (In & Out)
+ 	public void transfer(Account fromAccount, Account toAccount, double amount){
+ 		//Here, we may have to consider the database ACID(atomic, consistence, isolaiton, duration) problem.
+ 		fromAccount.transferOut(amount);
+ 		toAccount.transferIn(amount);
+ 	}
 }
